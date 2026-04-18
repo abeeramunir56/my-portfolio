@@ -59,18 +59,22 @@ export default function Home() {
             "Building secure, high-performance web applications with a focus on pixel-perfect design and digital safety."
           </motion.p>
 
-          <motion.div variants={fadeInUp} className="btn-wrapper" style={{ display: 'flex', justifyContent: 'flex-start' }}>
-            <Link href="#portfolio" style={{ textDecoration: 'none' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '15px', width: 'fit-content' }} className="explore-btn">
-                 <span style={{ color: 'white', borderBottom: '2px solid #c5a47e', paddingBottom: '3px', fontWeight: '900', letterSpacing: '3px', fontSize: '11px', textTransform: 'uppercase' }}>
-                    Explore My Work
-                 </span>
-                 <div style={{ background: '#c5a47e', width: '35px', height: '35px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#000' }}>
-                    <ArrowRight size={18} />
-                 </div>
-              </div>
-            </Link>
-          </motion.div>
+          <motion.div 
+  variants={fadeInUp} 
+  className="btn-wrapper" 
+  /* Inline style se justifyContent hata diya taake CSS control kare */
+>
+  <Link href="#portfolio" style={{ textDecoration: 'none' }}>
+    <div className="explore-btn" style={{ display: 'flex', alignItems: 'center', gap: '15px', width: 'fit-content' }}>
+       <span style={{ color: 'white', borderBottom: '2px solid #c5a47e', paddingBottom: '3px', fontWeight: '900', letterSpacing: '3px', fontSize: '11px', textTransform: 'uppercase' }}>
+          Explore My Work
+       </span>
+       <div style={{ background: '#c5a47e', width: '35px', height: '35px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#000' }}>
+          <ArrowRight size={18} />
+       </div>
+    </div>
+  </Link>
+</motion.div>
         </motion.div>
 
         {/* Right Side: Image Circle */}
