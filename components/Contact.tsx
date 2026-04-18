@@ -31,7 +31,7 @@ const Contact = () => {
              </div>
              <div className="info-item">
                 <FontAwesomeIcon icon={faLinkedin} className="contact-icon" />
-                <span className="social-text">www.linkedin.com/in/abeera-munir-817523399</span>
+                <span className="social-text">www.linkedin.com/in/abeera-munir</span>
              </div>
           </div>
         </div>
