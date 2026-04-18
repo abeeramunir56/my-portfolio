@@ -1,26 +1,98 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --gold: #c5a47e;
+  --bg-navy: #0f111a; 
+  --bg-dark: #050506;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* 1. Reset & Horizontal Scroll Prevention */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw; /* Sakhti se width ko screen tak mehdood kiya */
+  overflow-x: hidden; /* Kisi bhi qism ki horizontal scrolling khatam */
+  background-color: var(--bg-dark);
+  color: white;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 2. Global Box Sizing - Sabse zaroori fix */
+* { 
+  box-sizing: border-box; 
+  -webkit-tap-highlight-color: transparent; /* Mobile touch highlight remove */
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* 3. Sections & Main Containers */
+main, section, header, footer {
+  background: transparent !important;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+/* 4. Responsive Image Fix */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 5. Header: Fixed for Mobile Overlap */
+header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 80px; /* Thoda size kam kiya taake mobile par screen na ghaire */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  z-index: 1000;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  background: linear-gradient(to bottom, rgba(5, 5, 6, 0.9) 0%, transparent 100%);
+}
+
+/* 6. Hero Wrapper Responsive Fix */
+.hero-section-wrapper {
+  width: 100%;
+  max-width: 100%;
+  padding: 100px 5% 40px;
+  display: flex;
+  flex-wrap: wrap; /* Mobile par content ko niche move karne dega */
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* 7. Texture Overlay (Optimized) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.08; /* Thoda kam kiya taake background colors pop karein */
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* 8. Global Utility: Text Clamping for Mobile */
+h1, h2 {
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+/* 9. Scrollbar Styling (Premium Look) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 10px;
 }
